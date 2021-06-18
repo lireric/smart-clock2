@@ -1,0 +1,56 @@
+[package]
+authors = ["Eric V."]
+edition = "2018"
+readme = "README.md"
+name = "smart-clock2"
+version = "0.1.0"
+description = "digital clocks"
+keywords = ["arm", "cortex-m"]
+categories = ["embedded", "no-std"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/lireric/smart-clock2"
+
+[dependencies]
+cortex-m = "0.7.2"
+nb = "1.0.0"
+cortex-m-semihosting = "0.3.5"
+cortex-m-rt = "0.6.13"
+panic-abort = "0.3.2"
+# micromath = "1.1.0"
+cortex-m-rtic = "0.5.5"
+max7219 = "0.3.0"
+ds1307 = "0.3.0"
+# shared-bus-rtic = "0.2.2"
+bitbang-hal = "0.3.2"
+lite-json = {version="0.1.3", default-features=false, defaults=["no_std"]}
+alloc-cortex-m = "0.4.0"
+embedded-hal = "0.2.5"
+
+[dependencies.stm32f1]
+version = "0.13.0"
+features = ["stm32f103", "rt"]
+
+[dependencies.stm32f1xx-hal]
+version = "0.6.1"
+features = ["stm32f103", "rt", "high"]
+
+[dependencies.byteorder]
+default-features = false
+version = "1.3.4"
+
+[dependencies.cobs]
+default-features = false
+version = "0.1.4"
+
+# [dependencies.stepper-driver]
+# git = "https://github.com/etrombly/stepper-driver"
+
+[[bin]]
+name = "smart-clock2"
+test = false
+bench = false
+
+[profile.release]
+debug = true
+lto = true
+codegen-units = 1
